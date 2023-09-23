@@ -92,6 +92,11 @@ app.get('/fruits/:id', async (req, res) => {
   }
 });
 
+// Catch all route to prevent the CANNOT GET error
+app.get('*', (req, res) => {
+  res.redirect('/fruits');
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
